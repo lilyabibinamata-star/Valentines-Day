@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Valentine Website ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #ff5f9e, #ffc371);
+      color: #fff;
+      text-align: center;
+    }
+    header { padding: 3rem 1rem; }
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1.2rem; }
+
+    .slideshow-container {
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+    }
+    .slides {
+      display: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .caption {
+      padding: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .letter {
+      background: rgba(255,255,255,0.18);
+      border-radius: 25px;
+      padding: 2.5rem;
+      line-height: 1.8;
+      margin: 2rem auto;
+      max-width: 800px;
+      display: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .btn {
+      margin-top: 1.5rem;
+      background: #fff;
+      color: #ff5f9e;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="music" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <header>
+    <h1>Our Memories 💖</h1>
+    <p>Click through our moments and read my letter at the end</p>
+  </header>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <img class="slides" src="photo1.jpg" alt="photo1">
+    <div class="caption">Caption for photo 1</div>
+
+    <img class="slides" src="photo2.jpg" alt="photo2">
+    <div class="caption">Caption for photo 2</div>
+
+    <img class="slides" src="photo3.jpg" alt="photo3">
+    <div class="caption">Caption for photo 3</div>
+  </div>
+
+  <!-- Reveal Letter Button -->
+  <button class="btn" onclick="revealLetter()">Read My Heart 💌</button>
+
+  <!-- Love Letter -->
+  <div class="letter" id="letter">
+    <p>My love,</p>
+    <p>Loving you has been the easiest and hardest thing I’ve ever done — easy because my heart chose you without hesitation, and hard because loving deeply always comes with vulnerability.</p>
+    <p>Through every high and low, every silence and every laugh, you have remained my constant. I want you to know that you are deeply cherished, seen, and loved — not just for who you are, but for who you allow me to be when I’m with you.</p>
+    <p>This is my promise: to choose you, to grow with you, and to love you loudly and gently, in all the ways that matter.</p>
+    <p>Always yours, ❤️</p>
+    <button class="btn" onclick="proposal()">Will you forever be mine? 💍</button>
+  </div>
+
+  <script>
+    // Slideshow Logic
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName('slides');
+    const captions = document.getElementsByClassName('caption');
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+        captions[i].style.display = 'none';
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex-1].style.display = 'block';
+      captions[slideIndex-1].style.display = 'block';
+      setTimeout(showSlides, 3000); // Change slide every 3 sec
+    }
+    showSlides();
+
+    // Reveal Letter
+    function revealLetter() {
+      document.getElementById('letter').style.display = 'block';
+    }
+
+    // Proposal Button
+    function proposal() {
+      document.getElementById('letter').innerHTML = '<h1>💍 I’m yours forever 💍</h1><p>You just made me the happiest person alive. ❤️</p>';
+    }
+  </script>
+
+</body>
+</html>
